@@ -1,0 +1,106 @@
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b1120;
+}
+
+/* App shell */
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.app-sidebar {
+  width: 245px;
+  min-width: 245px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+/* Main content */
+.app-main {
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Page content */
+.page-content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Mobile menu button */
+.mobile-menu-button {
+  display: none;
+}
+
+/* Map */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background: #111827;
+  z-index: 1;
+}
+
+/* Leaflet controls */
+.leaflet-control-zoom {
+  z-index: 5;
+}
+
+/* Scrollbar */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive layout */
+@media (max-width: 767px) {
+  .app-sidebar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 260px;
+    min-width: 260px;
+    height: calc(100vh - 65px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .app-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-button {
+    display: none;
+  }
+
+  .app-main {
+    width: 100%;
+    height: calc(100vh - 65px);
+  }
+}
